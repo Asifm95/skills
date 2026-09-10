@@ -10,23 +10,22 @@ patterns. Install with the [skills CLI](https://github.com/vercel-labs/skills).
 
 ## Install
 
-From a local clone, run this in the project where you want to use the skills:
+Run this in the project where you want to use the mobile design skill:
 
 ```sh
-npx skills add /path/to/skills --skill mobile-app-design-skill
+npx skills add Asifm95/skills --skill mobile-app-design-skill
 ```
 
 To install both skills:
 
 ```sh
-npx skills add /path/to/skills --skill mobile-app-design-skill mobbin-usage
+npx skills add Asifm95/skills --skill mobile-app-design-skill mobbin-usage
 ```
 
-Install from GitHub (requires access to this private repository):
+To install from a local clone instead:
 
 ```sh
-npx skills add Asifm95/skills --skill mobile-app-design-skill
-npx skills add Asifm95/skills --skill mobile-app-design-skill mobbin-usage
+npx skills add /path/to/skills --skill mobile-app-design-skill
 ```
 
 Add `-g` for a user-wide installation, `-a codex` (or another supported agent)

@@ -1,7 +1,9 @@
-# Mobile design skills
+# Personal skills
 
-Agent skills for building native-feeling mobile apps and researching real UI
-patterns. Install with the [skills CLI](https://github.com/vercel-labs/skills).
+My collection of reusable agent skills for development, design, research, and
+everyday workflows. Install with the [skills CLI](https://github.com/vercel-labs/skills).
+
+## Available skills
 
 | Skill | Purpose |
 |---|---|
@@ -10,13 +12,13 @@ patterns. Install with the [skills CLI](https://github.com/vercel-labs/skills).
 
 ## Install
 
-Run this in the project where you want to use the mobile design skill:
+Run this in your project to choose which skills to install:
 
 ```sh
-npx skills add Asifm95/skills --skill mobile-app-design-skill
+npx skills add Asifm95/skills
 ```
 
-To install both skills:
+To install specific skills, pass their names:
 
 ```sh
 npx skills add Asifm95/skills --skill mobile-app-design-skill mobbin-usage
@@ -72,7 +74,8 @@ npx skills add . --list
 
 ## Attribution and license
 
-Adapted from [Appllama/appllama-skills](https://github.com/Appllama/appllama-skills).
+The mobile design and Mobbin skills are adapted from
+[Appllama/appllama-skills](https://github.com/Appllama/appllama-skills).
 The mobile design entrypoint preserves its detailed design guidance, with optional
 Mobbin research and a standalone fallback. See [adaptation notes](docs/ADAPTATION.md)
 for provenance and capability differences.

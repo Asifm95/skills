@@ -22,11 +22,11 @@ To install both skills:
 npx skills add /path/to/skills --skill mobile-app-design-skill mobbin-usage
 ```
 
-After publishing this repository to GitHub, replace `OWNER` with its GitHub owner:
+Install from GitHub (requires access to this private repository):
 
 ```sh
-npx skills add OWNER/skills --skill mobile-app-design-skill
-npx skills add OWNER/skills --skill mobile-app-design-skill mobbin-usage
+npx skills add Asifm95/skills --skill mobile-app-design-skill
+npx skills add Asifm95/skills --skill mobile-app-design-skill mobbin-usage
 ```
 
 Add `-g` for a user-wide installation, `-a codex` (or another supported agent)
@@ -34,7 +34,7 @@ to select an agent, and `-y` for non-interactive installation. Preview the avail
 skills without installing:
 
 ```sh
-npx skills add OWNER/skills --list
+npx skills add Asifm95/skills --list
 ```
 
 Each skill bundles its own references and license. Installing both keeps their

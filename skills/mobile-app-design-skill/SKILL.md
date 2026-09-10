@@ -1,35 +1,48 @@
 ---
-name: appllama-app-design-skill
-description: Build native-feeling, benchmark-quality mobile app screens (Expo / React Native). Use when designing or implementing any mobile UI — screens, flows, onboarding, paywalls, tab bars, sheets, settings, empty states — or when polishing motion, navigation, typography, dark mode, or perceived performance. Enforces Apple HIG fidelity, semantic colors, native controls, anti-slop discipline, navigation semantics (push vs replace, modal vs sheet vs overlay, the one-way doors where back must not exist), purposeful Reanimated motion, a full-motion simulator-verified iteration loop, and a study-real-apps-first workflow (pairs with the Appllama MCP). Trigger on "build a screen", "make this screen better", "design the onboarding", "wire up this flow", "polish the UI", "make it feel native", or any mobile design/implementation task.
+name: mobile-app-design-skill
+description: Build native-feeling, benchmark-quality mobile app screens (Expo / React Native). Use when designing or implementing any mobile UI — screens, flows, onboarding, paywalls, tab bars, sheets, settings, empty states — or when polishing motion, navigation, typography, dark mode, or perceived performance. Enforces Apple HIG fidelity, semantic colors, native controls, anti-slop discipline, navigation semantics (push vs replace, modal vs sheet vs overlay, the one-way doors where back must not exist), purposeful Reanimated motion, a full-motion simulator-verified iteration loop, and a study-real-apps-first workflow (works standalone; optionally pairs with the Mobbin MCP). Trigger on "build a screen", "make this screen better", "design the onboarding", "wire up this flow", "polish the UI", "make it feel native", or any mobile design/implementation task.
 license: MIT
 metadata:
-  author: Appllama (appllama.io)
-  version: 1.3.0
+  adapted-from: Appllama (appllama.io), appllama-app-design-skill v1.3.0
 ---
 
-# Appllama App Design Skill
+# Mobile App Design Skill
 
 You are building screens that will sit on a phone next to the best-designed apps
 in the world. The user will compare your output to those apps within seconds of
 launching it. This skill defines the bar and the method for clearing it.
 
+This skill stands on its own. Mobbin MCP and the `mobbin-usage` skill are
+optional research enhancements, never prerequisites for designing, building,
+or verifying an app. The native-quality bar below applies with or without them.
+
 ## The Prime Directive: study before you draw
 
-Never design a screen from imagination when you can study how top apps solved
-the same screen. Real, shipping, revenue-ranked apps encode thousands of hours
-of design iteration and A/B testing. Your first move on any screen is research:
+Never design a screen from imagination when you can study how shipping apps
+solved the same screen. Your first move is to use the evidence available:
 
-1. If the **Appllama MCP** is connected, pull real screens for the category and
-   screen type you are building (see the `appllama-usage` skill for the exact
-   research playbooks). Study 20–30 screens before writing a line of UI code.
-2. Extract the **pattern, not the pixels**: layout skeleton, information
+1. If the **Mobbin MCP** is connected and **mobbin-usage** is installed, read
+   [mobbin-usage](../mobbin-usage/SKILL.md) for its research playbooks, tool
+   selection, image inspection, and citation rules. Pull real screens for the
+   category and screen type you are building. Study enough relevant examples to
+   establish the design language; use that skill's completion criteria rather
+   than collecting a fixed quota. Search rank is relevance, not evidence of
+   revenue, conversion, or design quality.
+2. If Mobbin is missing, unconfigured, inaccessible, or the companion skill is
+   absent, continue directly with user-provided screenshots, the existing app's
+   screens and design system, and other accessible references. If no references
+   are available, design from the user's brief and platform conventions, stating
+   your design assumptions. A missing research tool is not a setup task or a
+   reason to pause the build; never claim to have studied unavailable references.
+3. Extract the **pattern, not the pixels**: layout skeleton, information
    hierarchy, control choices, spacing rhythm, where the primary CTA sits, what
-   gets an illustration vs. plain text, how progress is communicated.
-   Note: every Appllama image and video carries a small Appllama watermark in
-   the top-left corner. It is provenance, not design — ignore it when reading
-   a screen (it may sit over the status bar or a back button) and never
-   reproduce it in anything you build.
-3. Then design **your** screen: same proven skeleton, your product's voice.
+   gets an illustration vs. plain text, how progress is communicated. When
+   studying Mobbin images, separate its attribution frame from the app's UI.
+   Flow previews may show only sampled steps: inspect the remaining steps before
+   claiming a full-flow study. Static images do not establish animation timing,
+   gestures, back behavior, or conditional branches; label those as inferred
+   until observed in a running app or recording.
+4. Then design **your** screen: a familiar skeleton, your product's voice.
    Copying a competitor's screen 1:1 is both lazy and legally risky; shipping a
    screen that ignores every convention users already know is worse.
 
@@ -138,9 +151,11 @@ destination to here, must the user be able to come back, and what does back
    Deep links land with a real stack underneath (`initialRouteName` /
    `withAnchor`); cold start lands by state, splash held until session
    state has resolved — never a Login flash before Home.
-6. **Study the grammar, not just the pixels.** Walking a winning flow on
-   Appllama, note what each step *is* — push, modal, sheet — and copy that
-   consistency.
+6. **Study the grammar, not just the pixels.** When a reference flow is
+   available, note what each step *is* — push, modal, sheet — and copy that
+   consistency. Distinguish observed behavior from what static screens only
+   suggest. Without reference flows, choose presentation from the navigation
+   laws above and verify it in your own app.
 
 ## Anti-slop laws
 
@@ -151,8 +166,9 @@ explicitly asks for the thing AND you can articulate why it fits this product.
 1. **No AI-default styling.** Purple/indigo gradient CTAs with a glow,
    glassmorphism on every card, mesh-gradient heroes, confetti for minor
    events, sparkles in headings — that is the model's house style, not
-   design. Your palette, materials, and layout come from the reference
-   screens you studied, never from the priors you'd reach for unprompted.
+   design. Your palette, materials, and layout come from the product's brand,
+   existing design system, and reference screens you studied. Without references,
+   choose a coherent system from the brief and platform conventions, and state it.
 2. **One accent, locked.** Pick one accent color and it is THE accent on
    every screen — no blue CTA on one screen and teal on the next, no new hue
    appearing in screen seven. Neutrals carry the app; the accent is spent
@@ -314,8 +330,9 @@ zero UX glitches. One glitchy frame means the flow is not done.
 
 ## Definition of done, per screen
 
-- [ ] Studied 10+ real reference screens for this screen type (via Appllama
-      MCP when available) and can name the pattern you adopted
+- [ ] Can name the pattern adopted and its basis: inspected reference screens,
+      the existing design system, or the brief and platform conventions. Mobbin
+      research is optional; if unavailable, design assumptions are explicit.
 - [ ] Navigation answered: what this screen *is* (push / modal / sheet /
       overlay / replace), what back does from it on iOS and Android, and —
       behind a one-way door — that back cannot re-enter the old state
